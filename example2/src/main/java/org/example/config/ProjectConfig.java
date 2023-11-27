@@ -7,24 +7,21 @@ import org.springframework.context.annotation.Configuration;
 
 public class ProjectConfig {
 
-    @Bean
-    @Qualifier("fordEscape")
+    @Bean(name="fordEscape")
     public Vehicle vehicle(){
         Vehicle vehicle=  new Vehicle();
         vehicle.setName("Ford Escape");
         return vehicle;
     }
 
-    @Bean
-    @Qualifier("toyataRav4")
+    @Bean(name="toyotaRav4")
     public Vehicle vehicle1(){
         Vehicle vehicle=  new Vehicle();
         vehicle.setName("Toyota Rav4");
         return vehicle;
     }
 
-    @Bean
-    @Qualifier("HyundaiSantafe")
+    @Bean(name="hyundaiSantafe")
     public Vehicle vehicle3(){
         Vehicle vehicle=  new Vehicle();
         vehicle.setName("Hyundai Santafe");
