@@ -1,10 +1,8 @@
 package org.example;
 
 import org.example.beans.Vehicle;
-import org.example.config.ProjectConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.Map;
 
@@ -20,12 +18,20 @@ public class App
     {
         System.out.println( "Hello World!" );
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(App.class);
+
+        applicationContext.registerBean("bmwX3", Vehicle.class, ()->{
+            Vehicle v = new Vehicle();
+            v.setName("BMW Vehicle");
+            return v;
+        });
+
         Vehicle vehicle = applicationContext.getBean(Vehicle.class);
         System.out.println("primary vehicle:" +vehicle.getName());
 
+
         Map<String, Vehicle> veh = applicationContext.getBeansOfType(Vehicle.class);
-        for (Vehicle v:veh.values()) {
-            System.out.println("Vehicle " + v.getName());
+        for (Map.Entry<String, Vehicle> v:veh.entrySet()) {
+            System.out.println("Vehicle " + v.getKey() +"  - "+ v.getValue());
         }
         applicationContext.close();
 

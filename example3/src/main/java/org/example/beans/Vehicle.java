@@ -4,7 +4,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class Vehicle {
     private String name;
 
@@ -18,7 +18,7 @@ public class Vehicle {
 
     @PostConstruct
     public void init(){
-        this.name="ford escape";
+        System.out.println("creating beans");
     }
 
     @PreDestroy
