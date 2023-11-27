@@ -4,9 +4,11 @@ import org.example.beans.Vehicle;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 public class ProjectConfig {
 
+    @Primary
     @Bean(name="fordEscape")
     public Vehicle vehicle(){
         Vehicle vehicle=  new Vehicle();

@@ -4,6 +4,8 @@ import org.example.beans.Vehicle;
 import org.example.config.ProjectConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.util.Map;
+
 /**
  * Hello world!
  *
@@ -14,15 +16,13 @@ public class App
     {
         System.out.println( "Hello World!" );
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ProjectConfig.class);
+        Vehicle vehicle = applicationContext.getBean(Vehicle.class);
+        System.out.println("primary vehicle:" +vehicle.getName());
 
-        Vehicle veh = applicationContext.getBean("fordEscape", Vehicle.class);
-        System.out.println("Vehicle " + veh.getName());
-
-        Vehicle veh1 = applicationContext.getBean("toyotaRav4", Vehicle.class);
-        System.out.println("Vehicle " + veh1.getName());
-
-        Vehicle veh2 = applicationContext.getBean("hyundaiSantafe", Vehicle.class);
-        System.out.println("Vehicle " + veh2.getName());
+        Map<String, Vehicle> veh = applicationContext.getBeansOfType(Vehicle.class);
+        for (Vehicle v:veh.values()) {
+            System.out.println("Vehicle " + v.getName());
+        }
 
     }
 }

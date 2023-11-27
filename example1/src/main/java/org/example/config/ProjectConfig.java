@@ -1,9 +1,7 @@
 package org.example.config;
 
 import org.example.beans.Vehicle;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 public class ProjectConfig {
 
