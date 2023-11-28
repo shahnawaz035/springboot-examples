@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.beans.Person;
 import org.example.beans.Vehicle;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -25,7 +26,8 @@ public class App
             return v;
         });
 
-        Vehicle vehicle = applicationContext.getBean(Vehicle.class);
+        Person person = applicationContext.getBean(Person.class);
+        Vehicle vehicle = person.getVehicle();
         System.out.println("primary vehicle:" +vehicle.getName());
 
 
